@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import Auth from './components/Auth';
+import AnalyticsData from './components/AnalyticsData';
 
-function App() {
+const App = () => {
+  const [token, setToken] = useState(null);
+
+  const handleSetToken = (token) => {
+    setToken(token);
+    localStorage.setItem('token', token);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GoogleOAuthProvider clientId="430206269404-hoe018qt8tm41fa16uge4dl0pgt4r26b.apps.googleusercontent.com">
+      <div className="App">
+        <h1>GA4 Analytics Data</h1>
+        {!token ? (
+          <Auth setToken={handleSetToken} />
+        ) : (
+          <AnalyticsData token={token} />
+        )}
+      </div>
+    </GoogleOAuthProvider>
   );
-}
+};
 
 export default App;
