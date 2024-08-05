@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import AnalyticsChart from './AnalyticsChart';
+
 import AnalyticsTable from './AnalyticsTable';
+import AnalyticsChart from './AnalyticsChart';
+import AnalyticsGeoChart from './AnalyticsGeoChart';
 import '../styles.css';
 
 const AnalyticsData = ({ token }) => {
@@ -82,8 +84,9 @@ const AnalyticsData = ({ token }) => {
   return (
     <div className="container">
       <h2>Analytics Data</h2>
-      <AnalyticsTable data={data} />
+      <AnalyticsGeoChart data={data} />
       <AnalyticsChart data={data} />
+      <AnalyticsTable data={data} />
     </div>
   );
 };

@@ -25,6 +25,7 @@ const AnalyticsChart = ({ data }) => {
     <div className="chart-container">
       <Line data={chartData} />
     </div>
+
   );
 };
 
