@@ -16,8 +16,10 @@ const Auth = ({ setToken }) => {
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
     if (storedToken) {
-      console.log('Token from local storage', storedToken);
+      console.log('Token from local storage:', storedToken);
       setToken(storedToken);
+    } else {
+      console.log('No token found in local storage');
     }
   }, [setToken]);
 

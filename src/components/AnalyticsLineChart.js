@@ -5,7 +5,7 @@ import '../styles.css';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const AnalyticsChart = ({ data }) => {
+const AnalyticsLineChart = ({ data }) => {
   const labels = data.rows.map(row => row.dimensionValues[0].value);
   const values = data.rows.map(row => row.metricValues[0].value);
 
@@ -13,7 +13,7 @@ const AnalyticsChart = ({ data }) => {
     labels,
     datasets: [
       {
-        label: 'Active Users',
+        label: 'Page Views',
         data: values,
         borderColor: 'rgba(75, 192, 192, 1)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -25,8 +25,7 @@ const AnalyticsChart = ({ data }) => {
     <div className="chart-container">
       <Line data={chartData} />
     </div>
-
   );
 };
 
-export default AnalyticsChart;
+export default AnalyticsLineChart;

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Auth from './components/Auth';
-import AnalyticsData from './components/AnalyticsData';
+// import AnalyticsData from './components/AnalyticsData';
+import Overview from './components/Overview';
 
 const App = () => {
   const [token, setToken] = useState(null);
@@ -18,7 +19,7 @@ const App = () => {
         {!token ? (
           <Auth setToken={handleSetToken} />
         ) : (
-          <AnalyticsData token={token} />
+          <Overview token={token} />
         )}
       </div>
     </GoogleOAuthProvider>

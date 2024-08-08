@@ -1,15 +1,7 @@
 import React from 'react';
 
-const AnalyticsTable = ({ data }) => {
-  const headers = [
-    "Page Title", 
-    "Screen Class", 
-    "Page Views", 
-    "Engagement Duration", 
-    "Active Users", 
-    "Event Count", 
-    "Average Session Duration"
-  ];
+const ViewsTable = ({ data }) => {
+  const headers = ["Page Title", "Screen Class", "Page Views", "Engagement Duration", "Active Users", "Event Count", "Average Session Duration"];
 
   return (
     <div className="table-container">
@@ -28,9 +20,9 @@ const AnalyticsTable = ({ data }) => {
               <td>{row.dimensionValues[1].value}</td>
               <td>{row.metricValues[0].value}</td>
               <td>{row.metricValues[1].value}s</td>
-              <td>{row.metricValues[2].value}</td> {/* Active Users */}
-              <td>{row.metricValues[3].value}</td> {/* Event Count */}
-              <td>{row.metricValues[4].value}s</td> {/* Average Session Duration */}
+              <td>{row.metricValues[2].value}</td>
+              <td>{row.metricValues[3].value}</td>
+              <td>{row.metricValues[4].value}s</td>
             </tr>
           ))}
         </tbody>
@@ -39,4 +31,4 @@ const AnalyticsTable = ({ data }) => {
   );
 };
 
-export default AnalyticsTable;
+export default ViewsTable;
